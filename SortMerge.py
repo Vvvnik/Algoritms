@@ -1,6 +1,11 @@
-a=[4,6,2,3,5,7,9,0,8,1]
+import random
+
+a = []
+for x in range(1, 1000):
+    a.append(random.randint(1, 1000))
 
 print(a)
+
 def merge(left, right):
     result = []
     while len(left) > 0 and len(right) > 0:
@@ -27,5 +32,14 @@ def merge_sort(arr):
         return merge(left, right)
 
 
+import time
 
-print(merge_sort(a))
+start = time.time()
+
+b = merge_sort(a)
+
+end = time.time()
+print(end - start)
+
+print(b)
+

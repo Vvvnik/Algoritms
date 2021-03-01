@@ -1,7 +1,11 @@
+import random
 
-a=[4,6,2,3,5,7,9,0,8,1]
+a = []
+for x in range(1, 1000):
+    a.append(random.randint(1, 1000))
 
 print(a)
+
 
 def insertion_sort(arr):
     n = len(arr)
@@ -17,4 +21,14 @@ def insertion_sort(arr):
                 break
     return arr
 
-print(insertion_sort(a))
+import time
+
+start = time.time()
+
+b = insertion_sort(a)
+
+end = time.time()
+print(end - start)
+
+print(b)
+

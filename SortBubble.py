@@ -1,7 +1,11 @@
+import random
 
-a=[4,6,2,3,5,7,9,0,8,1]
+a = []
+for x in range(1, 1000):
+    a.append(random.randint(1, 1000))
 
 print(a)
+
 
 def bubble_sort(arr):
     n = len(arr)
@@ -11,4 +15,13 @@ def bubble_sort(arr):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
 
-print(bubble_sort(a))
+import time
+
+start = time.time()
+
+b = bubble_sort(a)
+
+end = time.time()
+print(end - start)
+
+print(b)

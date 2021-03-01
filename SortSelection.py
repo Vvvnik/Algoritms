@@ -1,5 +1,8 @@
+import random
 
-a=[4,6,2,3,5,7,9,0,8,1]
+a = []
+for x in range(1, 1000):
+    a.append(random.randint(1, 1000))
 
 print(a)
 
@@ -14,4 +17,13 @@ def selection_sort(arr):
             arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
 
-print(selection_sort(a))
+import time
+
+start = time.time()
+
+b = selection_sort(a)
+
+end = time.time()
+print(end - start)
+
+print(b)

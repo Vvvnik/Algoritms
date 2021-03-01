@@ -1,9 +1,10 @@
+import random
 
-a=[4,6,2,3,5,7,9,0,8,1]
+a = []
+for j in range(1, 1000):
+    a.append(random.randint(1, 1000))
 
 print(a)
-
-import random
 
 def quick_sort(arr):
     n = len(arr)
@@ -15,4 +16,7 @@ def quick_sort(arr):
         greater_or_equal = [x for x in arr if x >= pivot]
         return quick_sort(less) + quick_sort(greater_or_equal)
 
-print(quick_sort(a))
+sort = quick_sort(a)
+
+print(a)
+
