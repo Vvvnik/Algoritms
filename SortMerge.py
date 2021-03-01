@@ -2,17 +2,6 @@
 a=[4,6,2,3,5,7,9,0,8,1]
 
 print(a)
-
-def merge_sort(arr):
-    n = len(arr)
-    if n <= 1:
-        return arr
-    else:
-        middle = int(len(arr) / 2)
-        left = merge_sort(arr[:middle])
-        right = merge_sort(arr[middle:])
-        return merge(left, right)
-
 def merge(left, right):
     result = []
     while len(left) > 0 and len(right) > 0:
@@ -27,5 +16,17 @@ def merge(left, right):
     if len(right) > 0:
         result += right
     return result
+
+def merge_sort(arr):
+    n = len(arr)
+    if n <= 1:
+        return arr
+    else:
+        middle = int(len(arr) / 2)
+        left = merge_sort(arr[:middle])
+        right = merge_sort(arr[middle:])
+        return merge(left, right)
+
+
 
 print(merge_sort(a))
