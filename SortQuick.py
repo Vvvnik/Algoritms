@@ -36,14 +36,11 @@ def quick_sort(nums):
     _quick_sort(nums, 0, len(nums) - 1)
 # Проверяем, что все работает
 
-
 import time
+
 start = time.time()
 quick_sort(a)
-
-
 end = time.time()
+
 print(end - start)
-
-
 print(a)
