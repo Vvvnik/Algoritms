@@ -1,7 +1,7 @@
 import random
 
 a = []
-for x in range(1, 1000):
+for i in range(1, 1000):
     a.append(random.randint(1, 1000))
 
 print(a)
