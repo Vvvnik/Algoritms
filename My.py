@@ -21,7 +21,7 @@ MySort2(MyStr)
 print(MyStr)
 
 
-a= {'BMW','Mersedes','Audi','Porshe'}
+a= (['BMW',7,'white'],['Mersedes','black'],['Audi','red'],'Porshe')
 for i in enumerate(a):
     print(i)
 
