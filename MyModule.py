@@ -8,4 +8,4 @@ def MyReadTxtFile(NameFile):
     return (a)
 
 
-print(MyReadTxtFile('TestStr.txt'))
+

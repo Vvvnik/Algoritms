@@ -1,4 +1,6 @@
 import random
+import MyModule
+
 MyStr=[]
 for i in range(1,1000):
     MyStr.append(random.randint(0,1000))
@@ -37,3 +39,6 @@ for i in range(len(a)):
     a[i]+=1
 
 print(a)
+
+
+print(MyModule.MyReadTxtFile('TestStr.txt'))
