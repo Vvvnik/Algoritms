@@ -36,10 +36,23 @@ def quick_sort(nums):
     _quick_sort(nums, 0, len(nums) - 1)
 # Проверяем, что все работает
 
+def quicksort(nums):
+    if len(nums) <= 1:
+        return nums
+    else:
+        q = random.choice(nums)
+    l_nums = [n for n in nums if n < q]
+
+    e_nums = [q] * nums.count(q)
+    b_nums = [n for n in nums if n > q]
+    return quicksort(l_nums) + e_nums + quicksort(b_nums)
+
+
 import time
 
 start = time.time()
 quick_sort(a)
+# quicksort(a)   медленнее чем quick_sort
 end = time.time()
 
 print(end - start)
