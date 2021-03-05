@@ -1,5 +1,4 @@
-import random
-import MyModule
+import random, MyModule, time
 
 MyStr=[]
 for i in range(1,1000):
@@ -17,10 +16,10 @@ def MySort2(mas):
     for i in range(1,999):
         mas[i-1],mas[i] = mas[i],mas[i-1]
 
-MySort1(MyStr)
-print(MyStr)
-MySort2(MyStr)
-print(MyStr)
+#MySort1(MyStr)
+#print(MyStr)
+#MySort2(MyStr)
+#print(MyStr)
 
 
 
@@ -39,6 +38,20 @@ for i in range(len(a)):
     a[i]+=1
 
 print(a)
-
-
 print(MyModule.MyReadTxtFile('TestStr.txt'))
+
+#------------------------------------------------------------------------------
+
+a = []
+for x in range(1, 1000):
+    a.append(random.randint(1, 1000))
+print(a)
+
+
+start = time.time()
+
+MyModule.quick_sort(a)
+end = time.time()
+print(end - start)
+
+print(a)
