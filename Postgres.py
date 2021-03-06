@@ -1,4 +1,4 @@
-import psycopg2, sqlalchemy
+import psycopg2
 
 con = psycopg2.connect(
   database="my",
@@ -9,12 +9,12 @@ con = psycopg2.connect(
 )
 print("Database opened successfully")
 cur = con.cursor()
-#cur.execute('''CREATE TABLE STUDENT
-#     (ADMISSION INT PRIMARY KEY NOT NULL,
-#     NAME TEXT NOT NULL,
-#     AGE INT NOT NULL,
-#     COURSE CHAR(50),
-#     DEPARTMENT CHAR(50));''')
+cur.execute('''CREATE TABLE STUDENT
+     (ADMISSION INT PRIMARY KEY NOT NULL,
+     NAME TEXT NOT NULL,
+     AGE INT NOT NULL,
+     COURSE CHAR(50),
+     DEPARTMENT CHAR(50));''')
 
 cur.execute(
   "INSERT INTO STUDENT (ADMISSION,NAME,AGE,COURSE,DEPARTMENT) VALUES (3423, 'John', 18, 'Computer Science', 'ICT')"
