@@ -1,10 +1,86 @@
-import os, random
+import random
 
-def MyReadTxtFile(NameFile):
-    f = open(NameFile, 'r')
+
+class MyDanSort:
+
+    def __init__(self, a):
+        self.a = a
+        n = 1000
+        for x in range(n):
+            self.a.append(random.randint(1, n))
+
+    def get_bubble_sort(self):
+        n = len(self.a)
+        for i in range(n):
+            for j in range(n - i - 1):
+                if self.a[j] > self.a[j + 1]:
+                    self.a[j], self.a[j + 1] = self.a[j + 1], self.a[j]
+        return self.a
+
+    def partition(self, low, high):
+        # Мы выбираем средний элемент, в качестве опорного. Некоторые реализации выбирают
+        # первый элемент или последний элемент или вообще случайный элемент.
+        r = (len(self.a)) // 2
+        p = self.a[r]
+        i = low - 1
+        j = high + 1
+        while True:
+            i += 1
+            while self.a[i] < p:
+                i += 1
+            j -= 1
+            while self.a[j] > p:
+                j -= 1
+            if i >= j:
+                return j
+            # Если элемент в i (слева от оси) больше, чем
+            # элемент в J (справа от оси), то поменять их местами
+            self.a[i], self.a[j] = self.a[j], self.a[i]
+
+    def get_quick_sort(self):
+        # Создаем вспомогательную рекурсивную функцию
+
+        def _quick_sort(items, low, high):
+
+            if low < high:
+                # Это индекс после опорного элемента, по которому наши списки разделены
+                split_index = partition(items, low, high)
+                _quick_sort(items, low, split_index)
+                _quick_sort(items, split_index + 1, high)
+        _quick_sort(self.a, 0, len(self.a) - 1)
+        return self.a
+
+    def getInsertionSort(self):
+        n = len(self.a)
+        for i in range(n):
+            current_value = self.a[i]
+            j = i - 1
+            while j >= 0:
+                if current_value < self.a[j]:
+                    self.a[j + 1] = self.a[j]
+                    self.a[j] = current_value
+                    j = j - 1
+                else:
+                    break
+        return self.a
+
+    def getSelectionSort(self):
+        n = len(self.a)
+        for i in range(n):
+            lowest = i
+            for j in range(i + 1, n):
+                if self.a[j] < self.a[lowest]:
+                    lowest = j  # нашли меньший
+            self.a[i], self.a[lowest] = self.a[lowest], self.a[i]
+        return self.a
+
+
+def MyReadTxtFile(name_file):
+    f = open(name_file, 'r')
     a = f.read()
     f.close()
-    return (a)
+    return a
+
 
 def revers_string(s):
     chars = list(s)
@@ -15,6 +91,7 @@ def revers_string(s):
         chars[len(s)-i-1] = temp
     return ''.join(chars)
 
+
 def bubble_sort(arr):
     n = len(arr)
     for i in range(n):
@@ -22,6 +99,21 @@ def bubble_sort(arr):
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
+
+
+def bubble_sort2(s):
+    is_sorted = False
+    while not is_sorted:
+        is_sorted = True
+        for index in range(len(s)-1):
+            current = s[index]
+            my_next = s[index + 1]
+            if current > my_next:
+                is_sorted = False
+                s[index] = my_next
+                s[index + 1] = current
+    return s
+
 
 def heapify(nums, heap_size, root_index):
     # Предположим, что индекс самого большого элемента является корневым индексом
@@ -41,6 +133,7 @@ def heapify(nums, heap_size, root_index):
         # Heapify the new root element to ensure it's the largest
         heapify(nums, heap_size, largest)
 
+
 def heap_sort(nums):
     n = len(nums)
     # Создаем Max Heap из списка
@@ -52,6 +145,7 @@ def heap_sort(nums):
     for i in range(n - 1, 0, -1):
         nums[i], nums[0] = nums[0], nums[i]
         heapify(nums, i, 0)
+
 
 def insertion_sort(arr):
     n = len(arr)
@@ -83,6 +177,7 @@ def merge(left, right):
         result += right
     return result
 
+
 def merge_sort(arr):
     n = len(arr)
     if n <= 1:
@@ -92,6 +187,7 @@ def merge_sort(arr):
         left = merge_sort(arr[:middle])
         right = merge_sort(arr[middle:])
         return merge(left, right)
+
 
 # схема Tony Hoare
 def partition(nums, low, high):
@@ -113,6 +209,7 @@ def partition(nums, low, high):
         # элемент в J (справа от оси), то поменять их местами
         nums[i], nums[j] = nums[j], nums[i]
 
+
 def quick_sort(nums):
     # Создаем вспомогательную рекурсивную функцию
     def _quick_sort(items, low, high):
@@ -123,6 +220,7 @@ def quick_sort(nums):
             _quick_sort(items, split_index + 1, high)
     _quick_sort(nums, 0, len(nums) - 1)
 # Проверяем, что все работает
+
 
 def quicksort(nums):
     if len(nums) <= 1:
@@ -152,8 +250,8 @@ def selection_sort2(arr):
 
     for i in range(len(arr)):
         lowest = i
-        for j in range (i+1,len(arr)):
+        for j in range(i+1, len(arr)):
             if arr[j] < arr[lowest]:
-                lowest = j # нашли меньший
+                lowest = j
         arr[i], arr[lowest] = arr[lowest], arr[i]
-    return(arr)
+    return arr

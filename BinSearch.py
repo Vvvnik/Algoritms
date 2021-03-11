@@ -25,3 +25,21 @@ while(lowest<= highest) and (index is None):
         else:
             lowest = mid+1
 print('Искомый элемент', search_for, 'Находится под индексом', index)
+
+
+a= {'BMW','Mersedes','Audi','Porshe'}
+a= (['BMW',7,'white'],['Mersedes','black'],['Audi','red'],'Porshe')
+for i in enumerate(a):
+    print(i)
+
+a = [10, 20, 30, 40]
+
+d = [123]
+c = [10, 20, 30, 40]
+
+
+for i in range(len(a)):
+    a[i]+=1
+
+print(a)
+print(MyModule.MyReadTxtFile('TestStr.txt'))

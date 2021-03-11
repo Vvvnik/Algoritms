@@ -1,56 +1,31 @@
-import random, MyModule, time
+import random
+import MyModule
+import time
 
-MyStr=[]
-for i in range(1,1000):
-    MyStr.append(random.randint(0,1000))
-print(MyStr)
-
-def MySort1(mas):
-    k=len(mas)
-    i=0
-    while i<k-1:
-        mas[i],mas[i+1] = mas[i+1],mas[i]
-        i+=1
-
-def MySort2(mas):
-    for i in range(1,999):
-        mas[i-1],mas[i] = mas[i],mas[i-1]
-
-#MySort1(MyStr)
-#print(MyStr)
-#MySort2(MyStr)
-#print(MyStr)
-
-
-
-a= {'BMW','Mersedes','Audi','Porshe'}
-a= (['BMW',7,'white'],['Mersedes','black'],['Audi','red'],'Porshe')
-for i in enumerate(a):
-    print(i)
-
-a = [10, 20, 30, 40]
-
-d = [123]
-c = [10, 20, 30, 40]
-
-
-for i in range(len(a)):
-    a[i]+=1
-
-print(a)
-print(MyModule.MyReadTxtFile('TestStr.txt'))
-
-#------------------------------------------------------------------------------
+#     from MyModule import MyDanSort
 
 a = []
-for x in range(1, 1000):
-    a.append(random.randint(1, 1000))
-print(a)
 
+buble = MyModule.MyDanSort(a)
+
+print(buble.get_quick_sort())
+print('Yes')
+del buble
+
+a = []
+for x in range(1, 300):
+    a.append(random.randint(601, 1000))
+
+for x in range(1, 300):
+    a.append(random.randint(301, 600))
+
+for x in range(1, 400):
+    a.append(random.randint(1, 300))
+print(a)
 
 start = time.time()
 
-MyModule.quick_sort(a)
+MyModule.bubble_sort2(a)
 end = time.time()
 print(end - start)
 
