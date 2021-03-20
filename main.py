@@ -1,11 +1,13 @@
 import MyModule
 import time
+import random
 
-a = []
-buble = MyModule.MyDanSort(a)
+
+buble = MyModule.MyDanSort([])
 start = time.time()
-buble.get_quick_sort()
+print(buble.get_quick_sort())
 end = time.time()
 print(end - start)
-print(a)
 del buble
+
+
