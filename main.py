@@ -28,7 +28,7 @@ if Decorator:
 else:
     starter = time.time()
     print("Отсортированный список :  ")
-    print(buble.getInsertionSort())
+    print(buble.get_quick_sort())
     endear = time.time()
     print("Время выполнения :  ")
     print(endear-starter)
