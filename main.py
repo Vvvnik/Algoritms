@@ -33,4 +33,12 @@ else:
     print("Время выполнения :  ")
     print(endear-starter)
 
+
+     starter = time.time()
+    print("Отсортированный список :  ")
+    print(buble.MyQuickSort())
+    endear = time.time()
+    print("Время выполнения :  ")
+    print(endear-starter)
+
 del buble
