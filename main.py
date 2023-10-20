@@ -15,13 +15,7 @@ def decorator_calc_time(algoritmsSort):
     print("Время выполнения :  ")
     endear = time.time()
     return endear-starter
-def decorator_calc_time(algoritmsSort):
-    starter = time.time()
-    print("Отсортированный список :  ")
-    print(algoritmsSort)
-    print("Время выполнения :  ")
-    endear = time.time()
-    return endear-starter
+
 
 buble = MyModule.MyDanSort([]) # создется экземпляр класса MyDanSort
 # Decorator =1 или = 0 или функция из класса вызывается через декоратор или напрямую (напрямую дольше, почему?)
@@ -38,5 +32,8 @@ else:
     endear = time.time()
     print("Время выполнения :  ")
     print(endear-starter)
+
+
+    
 
 del buble
