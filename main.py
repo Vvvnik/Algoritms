@@ -34,11 +34,15 @@ else:
     print(endear-starter)
 
 
+<<<<<<< HEAD
+    
+=======
      starter = time.time()
     print("Отсортированный список :  ")
     print(buble.MyQuickSort())
     endear = time.time()
     print("Время выполнения :  ")
     print(endear-starter)
+>>>>>>> main
 
 del buble
